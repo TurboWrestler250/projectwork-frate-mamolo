@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="../Frontend/Frontend.csproj" />
+  <Project Path="Backend.ApiService/Backend.ApiService.csproj" />
+  <Project Path="Backend.AppHost/Backend.AppHost.csproj" />
+  <Project Path="Backend.ServiceDefaults/Backend.ServiceDefaults.csproj" />
+  <Project Path="Backend.Web/Backend.Web.csproj" />
+</Solution>
