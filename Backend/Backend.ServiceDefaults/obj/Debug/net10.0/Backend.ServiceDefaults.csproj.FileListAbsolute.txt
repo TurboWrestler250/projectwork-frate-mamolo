@@ -1,0 +1,13 @@
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\bin\Debug\net10.0\Backend.ServiceDefaults.deps.json
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\bin\Debug\net10.0\Backend.ServiceDefaults.dll
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\bin\Debug\net10.0\Backend.ServiceDefaults.pdb
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\obj\Debug\net10.0\Backend.ServiceDefaults.csproj.AssemblyReference.cache
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\obj\Debug\net10.0\Backend.ServiceDefaults.GeneratedMSBuildEditorConfig.editorconfig
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\obj\Debug\net10.0\Backend.ServiceDefaults.AssemblyInfoInputs.cache
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\obj\Debug\net10.0\Backend.ServiceDefaults.AssemblyInfo.cs
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\obj\Debug\net10.0\Backend.ServiceDefaults.csproj.CoreCompileInputs.cache
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\obj\Debug\net10.0\Backend.ServiceDefaults.sourcelink.json
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\obj\Debug\net10.0\Backend.ServiceDefaults.dll
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\obj\Debug\net10.0\refint\Backend.ServiceDefaults.dll
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\obj\Debug\net10.0\Backend.ServiceDefaults.pdb
+D:\Progetti\projectwork09\Backend\Backend.ServiceDefaults\obj\Debug\net10.0\ref\Backend.ServiceDefaults.dll
