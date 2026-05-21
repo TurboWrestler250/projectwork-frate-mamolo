@@ -2,11 +2,11 @@
 
 using frontend.Models;
 
-public class ExhibitionServices
+public class ExhibitionServices : IExhibitionServices
 {
-    public IEnumerable<Exhibition> GetAllExhibitions()
+    public Task<IEnumerable<Exhibition>> GetAllExhibitionsAsync()
     {
-        return new List<Exhibition>
+        List<Exhibition> _list = new List<Exhibition>
         {
             new Exhibition
             {
@@ -29,6 +29,8 @@ public class ExhibitionServices
                 Status = "Upcoming"
             }
         };
+
+        return Task.FromResult<IEnumerable<Exhibition>>(_list);
         // nella descrizione estraiamo le prime 15 parole per un anteprima, e poi quando clicchiamo su "Leggi di più" mostriamo la descrizione completa
     }
 

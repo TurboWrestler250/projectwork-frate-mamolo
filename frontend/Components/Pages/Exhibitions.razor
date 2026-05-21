@@ -1,25 +1,13 @@
-﻿<h3>Exhibitions</h3>
+﻿@inject IExhibitionServices ExhibitionServices
 
-@if (Item is not null)
-{
-	<tr>
-		<td>@Item.Id</td>
-		<td>@Item.Title</td>
-		<td>@Item.Description</td>
-		<td>@Item.StartDate</td>
-		<td>@Item.FinishDate</td>
-		<td>@Item.ImageUrl</td>
-		<td>@Item.Status</td>
-		<td>
-			<a href="/products/details/@Item.Id">details</a>
-			<a href="@($"/products/edit/{Item.Id}")">edit</a>
-		</td>
-	</tr>
-}
+<h3>Exhibitions</h3>
 
-@code {
+@code{
+    public IEnumerable<Exhibition> exhibitions = new List<Exhibition>();
 
-	[Parameter]
-	public Exhibition? Item { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        exhibitions = await ExhibitionServices.GetAllExhibitionsAsync();
+    }
 
 }
