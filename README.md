@@ -10,9 +10,7 @@ PAGINE
 
 	-ACQUISTO BIGLIETTI
 		tariffa in base alla mostra
-		si no visita guidata (+prezzo)
-		
-- verificare che il tipo e la relazione di Exhibition nell'oggetto 
+		si no visita guidata (+prezzo) 
 		
 -------------------------------------------------------------
 
