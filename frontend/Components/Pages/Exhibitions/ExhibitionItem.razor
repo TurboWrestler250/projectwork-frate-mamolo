@@ -6,13 +6,9 @@
 		<td><img src=@Item.ImageUrl alt="duomo di milano"></td>
 		<td>@Item.StartDate</td>
 		<td>@Item.FinishDate</td>
-		<td>@Item.Title</td>
+		<td><a href="">@Item.Title</a></td>
 		<td>@Item.Description</td>
 		<td>@Item.Status</td>
-		@* <td>
-			<a href="/products/details/@Item.Id">details</a>
-			<a href="@($"/products/edit/{Item.Id}")">edit</a>
-		</td> *@
 	</tr>
 }
 
