@@ -2,11 +2,11 @@
 
 using frontend.Models;
 
-public class ExhibitionServices : IExhibitionServices
+public class ExhibitionsService : IExhibitionsService
 {
-    public Task<IEnumerable<Exhibition>> GetAllExhibitionsAsync()
+    public Task<IEnumerable<Exhibition>> GetAllAsync()
     {
-        List<Exhibition> _list = new List<Exhibition>
+        return Task.FromResult<IEnumerable<Exhibition>>(new List<Exhibition>
         {
             new Exhibition
             {
@@ -25,18 +25,16 @@ public class ExhibitionServices : IExhibitionServices
                 Description = "Description of exhibition 2",
                 StartDate = new DateOnly(2024, 2, 1),
                 FinishDate = new DateOnly(2024, 2, 28),
-                ImageUrl = "https://example.com/exhibition2.jpg",
+                ImageUrl = "https://www.deltaradio.it/resizer/480/-1/true/2025_08_07/ScottiPardi-750x430-1754583136884.jpg--gerry_scotti_compie_69_anni__una_vita_tra_tv__politica_e_successi_senza_tempo.jpg?1754583136913",
                 Status = "Upcoming"
             }
-        };
-
-        return Task.FromResult<IEnumerable<Exhibition>>(_list);
+        });
         // nella descrizione estraiamo le prime 15 parole per un anteprima, e poi quando clicchiamo su "Leggi di più" mostriamo la descrizione completa
     }
 
-    public Exhibition GetExhibitionById(int id)
+    public Task<Exhibition?> GetItemByIdAsync(int id)
     {
-        return new Exhibition
+        return Task.FromResult<Exhibition?>(new Exhibition
         {
             Id = id,
             Title = $"Exhibition {id}",
@@ -45,6 +43,6 @@ public class ExhibitionServices : IExhibitionServices
             FinishDate = new DateOnly(2024, 1, 31),
             ImageUrl = $"https://example.com/exhibition{id}.jpg",
             Status = "Active"
-        };
+        });
     }
 }

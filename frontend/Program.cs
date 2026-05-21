@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddScoped<IExhibitionServices, ExhibitionServices>();
+builder.Services.AddScoped<IExhibitionsService, ExhibitionsService>();
 
 var app = builder.Build();
 

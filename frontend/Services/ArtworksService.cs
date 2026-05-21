@@ -2,6 +2,6 @@
 
 using frontend.Models;
 
-public interface ArtworkServices
+public interface ArtworksService
 {
 }
