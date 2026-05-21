@@ -4,9 +4,8 @@ using frontend.Models;
 
 public class ExhibitionsService : IExhibitionsService
 {
-    public Task<IEnumerable<Exhibition>> GetAllAsync()
-    {
-        return Task.FromResult<IEnumerable<Exhibition>>(new List<Exhibition>
+
+    private List<Exhibition> list = new List<Exhibition>
         {
             new Exhibition
             {
@@ -28,21 +27,25 @@ public class ExhibitionsService : IExhibitionsService
                 ImageUrl = "https://backoffice2-comuni.regione.fvg.it/media/files/erpac_musei_gorizia/previews/Gorizia_incrocio_Corso_Verdi_via_Diaz_prima_della_cos_x7lMJcW.jpg.640x480_q85_crop.jpg.webp",
                 Status = "Upcoming"
             }
-        });
+        };
+
+    public Task<IEnumerable<Exhibition>> GetAllAsync()
+    {
+        return Task.FromResult<IEnumerable<Exhibition>>(list);
         // nella descrizione estraiamo le prime 15 parole per un anteprima, e poi quando clicchiamo su "Leggi di più" mostriamo la descrizione completa
     }
 
-    public Task<Exhibition?> GetItemByIdAsync(int id)
+    public Task<Exhibition> GetItemByIdAsync(int id)
     {
-        return Task.FromResult<Exhibition?>(new Exhibition
+        var exhibition = new Product()
         {
             Id = id,
-            Title = $"Exhibition {id}",
-            Description = $"Description of exhibition {id}",
-            StartDate = new DateOnly(2024, 1, 1),
-            FinishDate = new DateOnly(2024, 1, 31),
-            ImageUrl = $"https://example.com/exhibition{id}.jpg",
-            Status = "Active"
-        });
+            Name = $"Product {id}",
+            Code = $"P-{id}",
+            Description = $"Description of product {id}",
+            Price = id * 10
+        };
+
+        return Task.FromResult<Product?>(product);
     }
 }
