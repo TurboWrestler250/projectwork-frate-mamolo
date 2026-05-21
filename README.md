@@ -17,3 +17,6 @@ PAGINE
 -------------------------------------------------------------
 
 I visitatori dovranno invece poter consultare le informazioni pubblicate, visualizzare le mostre disponibili, consultare le opere esposte, prenotare una visita guidata e acquistare o registrare un biglietto.
+
+SITO DA PRENSERE SPUNTO
+https://musei.regione.fvg.it/it/categories/musei-provinciali-15923
