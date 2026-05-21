@@ -2,6 +2,35 @@
 
 <h3>Exhibitions</h3>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>StartDate</th>
+            <th>FinishDate</th>
+            <th>Status</th>
+            <th>image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exhibition in exhibitions)
+        {
+            @if (exhibition.Status == "active")
+            {
+                <tr>
+                    <td>@exhibition.Title</td>
+                    <td>@exhibition.Description</td>
+                    <td>@exhibition.StartDate</td>
+                    <td>@exhibition.FinishDate</td>
+                    <td>@exhibition.Status</td>
+                    <td>@exhibition.ImageUrl</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
 @code{
     public IEnumerable<Exhibition> exhibitions = new List<Exhibition>();
 
