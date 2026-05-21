@@ -1,4 +1,6 @@
-﻿@inject IExhibitionServices ExhibitionServices
+﻿@page "/exhibitions"
+
+@inject IExhibitionServices ExhibitionServices
 
 <h3>Exhibitions</h3>
 
@@ -16,7 +18,7 @@
     <tbody>
         @foreach (var exhibition in exhibitions)
         {
-            @if (exhibition.Status == "active")
+            @if (exhibition.Status == "Active")
             {
                 <tr>
                     <td>@exhibition.Title</td>
