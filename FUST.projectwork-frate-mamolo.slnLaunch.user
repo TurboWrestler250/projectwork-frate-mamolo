@@ -1,0 +1,27 @@
+[
+  {
+    "Name": "fe-be",
+    "Projects": [
+      {
+        "Path": "backend\\backend.ApiService\\backend.ApiService.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "backend\\backend.AppHost\\backend.AppHost.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "backend\\backend.ServiceDefaults\\backend.ServiceDefaults.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "backend\\backend.Web\\backend.Web.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "frontend\\frontend.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
