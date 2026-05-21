@@ -15,7 +15,7 @@ public class ExhibitionServices : IExhibitionServices
                 Description = "Description of exhibition 1",
                 StartDate = new DateOnly(2024, 1, 1),
                 FinishDate = new DateOnly(2024, 1, 31),
-                ImageUrl = "https://example.com/exhibition1.jpg",
+                ImageUrl = "https://www.deltaradio.it/resizer/480/-1/true/2025_08_07/ScottiPardi-750x430-1754583136884.jpg--gerry_scotti_compie_69_anni__una_vita_tra_tv__politica_e_successi_senza_tempo.jpg?1754583136913",
                 Status = "Active"
             },
             new Exhibition
