@@ -2,11 +2,17 @@
 
 @if(_artwork is not null)
 {
-    <p>Artwork not found</p>
+    <PageTitle>Home / @_artwork.Title</PageTitle>
+    <h2>@_artwork.Title</h2>
+    <img src="@_artwork.ImageUrl" alt="Alternate Text" style="max-width: 200px">
+    <italics><p>@_artwork.Author</p></italics>
+    <h1>@_artwork.Title</h1>
+    <p>@_artwork.Technique</p>
+    <p>@_artwork.Description</p>
 }
 else
 {
-    <h2>@_artwork.Title</h2>
+    <p>Artwork not found</p>
 }
 
 <a href="/artworks" class="btn btn-xs btn-secondary">Back to list</a>

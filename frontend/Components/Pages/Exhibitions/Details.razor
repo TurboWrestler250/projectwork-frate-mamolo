@@ -15,10 +15,49 @@ else
 				To: <strong>@_exhibition.EndDate</strong>
 				Status: <strong>@_exhibition.Status</strong>
 			</p>
+
+            @if (_artworks is null)
+            {
+                <p>No artworks found for this exhibition</p>
+            }
+            else
+            {
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Image</th>
+						<th>Year</th>
+						<th>Title</th>
+						<th>Description</th>
+						<th>Author</th>
+						<th>Technique</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var i in _artworks)
+					{
+						if (i is not null)
+						{
+							<tr>
+								<td><img src="@i.ImageUrl" alt="Alternate Text" style="max-width: 200px" /></td>
+								<td>@i.Year</td>
+								<td><a href="@($"/artworks/details/{i.Id}")">@i.Title</a></td>
+								<td>@i.Description</td>
+								<td>@i.Author</td>
+								<td>@i.Technique</td>
+							</tr>
+						}
+						else
+						{
+							<tr><td colspan="6">not found</td></tr>
+						}
+					}
+				</tbody>
+			</table>
+            }
 		</Body>
 		<Footer>
 			<a href="/exhibitions" class="btn btn-xs btn-secondary">Back to list</a>
 		</Footer>
 	</Card>
-
 }

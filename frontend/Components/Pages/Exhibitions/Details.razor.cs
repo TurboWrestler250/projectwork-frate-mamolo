@@ -4,9 +4,10 @@ using frontend.Models;
 using frontend.Services;
 using Microsoft.AspNetCore.Components;
 
-public partial class Details(IExhibitionsService exhibitionsService)
+public partial class Details(IExhibitionsService exhibitionsService, IArtworksService artworksService)
 {
     private Exhibition? _exhibition;
+    private IEnumerable<Artwork>? _artworks;
 
     [Parameter]
     public int Id { get; set; }
@@ -18,5 +19,6 @@ public partial class Details(IExhibitionsService exhibitionsService)
     protected override async Task OnInitializedAsync()
     {
         _exhibition = await exhibitionsService.GetItemByIdAsync(Id);
+        _artworks = await artworksService.GetAllAsync();
     }
 }

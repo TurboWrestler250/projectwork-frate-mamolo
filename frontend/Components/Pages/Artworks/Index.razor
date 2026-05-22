@@ -2,7 +2,7 @@
 
 <PageTitle>Artworks</PageTitle>
 
-@inject IArtworksService ArtworksService
+@* @inject IArtworksService ArtworksService *@
 
 @if(_list is null)
 {
@@ -37,7 +37,7 @@ else
 				}
 				else
 				{
-					<p>not found</p>
+					<tr><td colspan="6">aertwork not found</td></tr>
 				}
 			}
 		</tbody>
