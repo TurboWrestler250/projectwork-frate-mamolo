@@ -5,15 +5,15 @@ using frontend.Models;
 public class ExhibitionsService : IExhibitionsService
 {
 
-    private List<Exhibition> list = new List<Exhibition>
-        {
+    private static readonly List<Exhibition> list =
+        [
             new Exhibition
             {
                 Id = 1,
                 Title = "Palazzo Attems Petzenstein",
                 Description = "Ultimato nella sua veste rococò nel 1750, oggi ospita mostre temporanee e la Pinacoteca dei Musei Provinciali-ERPAC FVG di Gorizia.",
                 StartDate = new DateOnly(2023, 1, 13),
-                FinishDate = new DateOnly(2026, 5, 21),
+                EndDate = new DateOnly(2026, 5, 21),
                 ImageUrl = "https://backoffice2-comuni.regione.fvg.it/media/files/erpac_musei_gorizia/previews/72840120_1169518193238578_1749242460564881408_o.jpg.640x480_q85_crop.jpg.webp",
                 Status = "Active"
             },
@@ -23,11 +23,11 @@ public class ExhibitionsService : IExhibitionsService
                 Title = "Fototeca",
                 Description = "Migliaia di stampe d’epoca, diapositive, cartoline e negativi, collegati alle vicende locali, a cui si aggiungono le vedute di Gorizia prima e dopo la...",
                 StartDate = new DateOnly(2023, 1, 9),
-                FinishDate = new DateOnly(2026, 5, 21),
+                EndDate = new DateOnly(2026, 5, 21),
                 ImageUrl = "https://backoffice2-comuni.regione.fvg.it/media/files/erpac_musei_gorizia/previews/Gorizia_incrocio_Corso_Verdi_via_Diaz_prima_della_cos_x7lMJcW.jpg.640x480_q85_crop.jpg.webp",
                 Status = "Upcoming"
             }
-        };
+        ];
 
     public Task<IEnumerable<Exhibition>> GetAllAsync()
     {
@@ -35,17 +35,10 @@ public class ExhibitionsService : IExhibitionsService
         // nella descrizione estraiamo le prime 15 parole per un anteprima, e poi quando clicchiamo su "Leggi di più" mostriamo la descrizione completa
     }
 
-    public Task<Exhibition> GetItemByIdAsync(int id)
+    public Task<Exhibition?> GetItemByIdAsync(int id)
     {
-        var exhibition = new Product()
-        {
-            Id = id,
-            Name = $"Product {id}",
-            Code = $"P-{id}",
-            Description = $"Description of product {id}",
-            Price = id * 10
-        };
+        Exhibition? exhibition = list.FirstOrDefault(e => e.Id == id);
 
-        return Task.FromResult<Product?>(product);
+        return Task.FromResult(exhibition);
     }
 }

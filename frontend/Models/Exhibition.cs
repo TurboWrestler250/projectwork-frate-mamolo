@@ -14,7 +14,7 @@ public class Exhibition
     [Required]
     public DateOnly StartDate { get; set; }
     [Required]
-    public DateOnly FinishDate { get; set; }
+    public DateOnly EndDate { get; set; }
     [Required]
     [StringLength(1000, MinimumLength = 1)]
     public string ImageUrl { get; set; } = default!;

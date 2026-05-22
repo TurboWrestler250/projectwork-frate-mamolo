@@ -4,5 +4,5 @@ using frontend.Models;
 public interface IExhibitionsService
 {
     Task<IEnumerable<Exhibition>> GetAllAsync();
-    Task<Exhibition> GetItemByIdAsync(int id);
+    Task<Exhibition?> GetItemByIdAsync(int id);
 }

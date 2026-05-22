@@ -1,11 +1,9 @@
-﻿<h3>Exhibitions</h3>
-
-@if (Item is not null)
+﻿@if (Item is not null)
 {
 	<tr>
-		<td><img src=@Item.ImageUrl alt="duomo di milano"></td>
+		<td><img src=@Item.ImageUrl alt="duomo di milano" style="max-width: 150px;"></td>
 		<td>@Item.StartDate</td>
-		<td>@Item.FinishDate</td>
+		<td>@Item.EndDate</td>
 		<td><a href="@($"/exhibitions/details/{Item.Id}")">@Item.Title</a></td>
 		<td>@Item.Description</td>
 		<td>@Item.Status</td>
