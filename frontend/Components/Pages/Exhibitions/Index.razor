@@ -29,3 +29,28 @@ else
 		</tbody>
 	</table>
 }
+
+@* @page "/exhibitions/details/{Id:int}"
+
+@if (_exhibition is null)
+{
+	<p>Exhibition not found</p>
+}
+else
+{
+	<Card Title="@_exhibition.Title" style="background: url(@_exhibition.ImageUrl);">
+		<Body>
+			<p class="card-text">
+				Description: <strong>@_exhibition.Description</strong>
+				<br />
+				From: <strong>@_exhibition.StartDate</strong>
+				To: <strong>@_exhibition.EndDate</strong>
+				Status: <strong>@_exhibition.Status</strong>
+			</p>
+		</Body>
+		<Footer>
+			<a href="/exhibitions" " class="btn btn-xs btn-secondary">Back to list</a>
+		</Footer>
+	</Card>
+
+} *@

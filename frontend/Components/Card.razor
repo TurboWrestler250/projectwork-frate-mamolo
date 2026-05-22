@@ -1,0 +1,22 @@
+﻿<h2>Home / @Title</h2>
+
+<div class="card">
+	<h5 class="card-header">@Title</h5>
+	<div class="card-body">
+		@Body
+	</div>
+	@if (Footer is not null)
+	{
+		<div class="card-footer">
+			@Footer
+		</div>
+	}
+</div>
+
+@code {
+
+	[Parameter] public string? Title { get; set; }
+	[Parameter] public RenderFragment? Body { get; set; }
+	[Parameter] public RenderFragment? Footer { get; set; }
+}
+

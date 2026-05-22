@@ -1,14 +1,12 @@
 ﻿@page "/exhibitions/details/{Id:int}"
 
-<h3>Details</h3>
-
 @if (_exhibition is null)
 {
 	<p>Exhibition not found</p>
 }
 else
 {
-	<Card Title="@_exhibition.Title" style="background: url(@_exhibition.ImageUrl);">
+	<Card Title="@_exhibition.Title"> @* style="background: url(@_exhibition.ImageUrl);" *@
 		<Body>
 			<p class="card-text">
 				Description: <strong>@_exhibition.Description</strong>
@@ -19,7 +17,7 @@ else
 			</p>
 		</Body>
 		<Footer>
-			<a href="/exhibitions"" class="btn btn-xs btn-secondary">Back to list</a>
+			<a href="/exhibitions" class="btn btn-xs btn-secondary">Back to list</a>
 		</Footer>
 	</Card>
 
