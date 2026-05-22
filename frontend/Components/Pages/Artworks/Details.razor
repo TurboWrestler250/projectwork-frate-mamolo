@@ -1,0 +1,11 @@
+﻿@page "/artworks/details/{id:int}"
+
+@if(_artwork is not null)
+{
+    <p>Artwork not found</p>
+}
+else
+{
+    <h2>@_artwork.Title</h2>
+    <a href="/artworks" class="btn btn-xs btn-secondary">Back to list</a>
+}

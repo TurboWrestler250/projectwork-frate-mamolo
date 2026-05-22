@@ -8,6 +8,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddScoped<IExhibitionsService, ExhibitionsService>();
+builder.Services.AddScoped<IArtworksService, ArtworksService>();
 
 var app = builder.Build();
 
