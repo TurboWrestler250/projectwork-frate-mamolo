@@ -25,7 +25,7 @@ public class ExhibitionsService : IExhibitionsService
                 StartDate = new DateOnly(2023, 1, 9),
                 EndDate = new DateOnly(2026, 5, 21),
                 ImageUrl = "https://backoffice2-comuni.regione.fvg.it/media/files/erpac_musei_gorizia/previews/Gorizia_incrocio_Corso_Verdi_via_Diaz_prima_della_cos_x7lMJcW.jpg.640x480_q85_crop.jpg.webp",
-                Status = "Upcoming"
+                Status = "Set"
             }
         ];
 

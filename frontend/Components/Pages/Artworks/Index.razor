@@ -16,8 +16,8 @@ else
                 <th>Image</th>
                 <th>Year</th>
                 <th>Title</th>
+                <th>Author</th>
                 <th>Description</th>
-				<th>Author</th>
 				<th>Technique</th>
 			</tr>
 		</thead>
@@ -27,17 +27,17 @@ else
 				if(i is not null)
                 {
                     <tr>
-                        <td><img src="@i.ImageUrl" alt="Alternate Text" style="max-width: 200px"></td>
+                        <td><img src="@i.ImageUrl" alt="Alternate Text" style="max-width: 300px"></td>
                         <td>@i.Year</td>
-						<td><a href="@($"/artworks/details/{i.Id}")">@i.Title</a></td>
+                        <td><a href="@($"/artworks/details/{i.Id}")">@i.Title</a></td>
+                        <td>@i.Author</td>
                         <td>@i.Description</td>
-						<td>@i.Author</td>
                         <td>@i.Technique</td>
                     </tr>
 				}
 				else
 				{
-					<tr><td colspan="6">aertwork not found</td></tr>
+					<tr><td colspan="6">artwork not found</td></tr>
 				}
 			}
 		</tbody>

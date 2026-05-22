@@ -12,7 +12,21 @@ public class ArtworksService : IArtworksService
                 Title = "Persistenza della memoria",
                 Author = "Gerry Scotty",
                 Year = 1750,
-                Description = "We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you We've known each other for so long Your heart's been aching, but you're too shy to say it Inside, we both know what's been going on We know the game, and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Ooh (Give you up) Ooh-ooh (Give you up) Ooh (Never gonna give, never gonna give) Give you up Ooh-ooh (Never gonna give, never gonna give) Give you up We've known each other for so long Your heart's been aching, but you're too shy to say it Inside, we both know what's been going on We know the game, and we're gonna play it I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you",
+                Description = """
+                We're no strangers to love
+                You know the rules and so do I
+                A full commitment's what I'm thinking of
+                You wouldn't get this from any other guy
+                I just wanna tell you how I'm feeling
+                Gotta make you understand
+                Never gonna give you up
+                Never gonna let you down
+                Never gonna run around and desert you
+                Never gonna make you cry
+                Never gonna say goodbye
+                Never gonna tell a lie and hurt you
+                We've known each other for so long Your heart's been aching, but you're too shy to say it Inside, we both know what's been going on We know the game, and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you
+                """,
                 Technique = "Olio su tela",
                 ImageUrl = "https://img.bgstatic.com/multiLang/web/44528784f7bc9c0f6cb1ad0e4cc23f5d.jpg"
             },

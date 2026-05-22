@@ -12,7 +12,6 @@ public class Artwork
     [StringLength(100, MinimumLength = 1)]
     public string Author { get; set; } = default!;
     [Required]
-    [StringLength(100, MinimumLength = 1)]
     public int Year { get; set; }
     [Required]
     [StringLength(10000, MinimumLength = 1)]

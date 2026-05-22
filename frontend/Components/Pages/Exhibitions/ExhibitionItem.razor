@@ -7,6 +7,10 @@
 		<td><a href="@($"/exhibitions/details/{Item.Id}")">@Item.Title</a></td>
 		<td>@Item.Description</td>
 		<td>@Item.Status</td>
+		<td>@if(Item.Status=="Active")
+			{
+				<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-xs btn-secondary">Book a visit</a>
+			}</td>
 	</tr>
 }
 
