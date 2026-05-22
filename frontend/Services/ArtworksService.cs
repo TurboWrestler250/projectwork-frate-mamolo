@@ -24,7 +24,7 @@ public class ArtworksService : IArtworksService
                 Description = "Skibidi toilet è un fenomeno virale che ha conquistato internet con la sua combinazione di musica orecchiabile e coreografie stravaganti. Il video originale, pubblicato su YouTube, mostra persone che ballano in modo bizzarro mentre indossano costumi da bagno e si muovono in modo sincronizzato. La canzone, con il suo ritmo contagioso, ha ispirato milioni di persone a creare i propri video di danza Skibidi, rendendo il fenomeno un successo globale. La popolarità del Skibidi toilet ha dimostrato come la creatività e l'umorismo possano unire le persone attraverso i social media, creando una comunità globale di fan che condividono la loro passione per questa stravagante tendenza.",
                 Year = 1690,
                 Technique = "Aglio su pasta",
-                ImageUrl = "https://media.istockphoto.com/id/2166737855/it/foto/fenicotteri-giovani.jpg?s=2048x2048&w=is&k=20&c=RToViGXsM39f52-nMAUtsVxv4bEE60ePzGzH_juOVlY="
+                ImageUrl = "https://m.media-amazon.com/images/M/MV5BMzgzMzY2MmMtMWNkNy00ZjVkLWIxOWUtZDJjODNmY2IyOWFiXkEyXkFqcGc@._V1_QL75_UX190_CR0,28,190,281_.jpg"
             }
         ];
     public Task<IEnumerable<Artwork>> GetAllAsync()
