@@ -10,7 +10,9 @@ PAGINE
 
 	-ACQUISTO BIGLIETTI
 		tariffa in base alla mostra
-		si no visita guidata (+prezzo) 
+		si no visita guidata (+prezzo)
+		
+Fare le chiamate API dentro una classe dedicata come servizio per l'accesso ai dati con dependencies injection.
 		
 -------------------------------------------------------------
 
