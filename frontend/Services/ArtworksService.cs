@@ -11,7 +11,7 @@ public class ArtworksService : IArtworksService
                 Id = 1,
                 Title = "Persistenza della memoria",
                 Author = "Gerry Scotty",
-                Year = 1750,
+                Year = 67,
                 Description = """
                 We're no strangers to love
                 You know the rules and so do I
@@ -51,5 +51,54 @@ public class ArtworksService : IArtworksService
         Artwork? artwork = list.FirstOrDefault(e => e.Id == id);
 
         return Task.FromResult(artwork);
+    }
+
+    public Task AddAsync(Artwork artwork)
+    {
+        try
+        {
+            list.Add(artwork);
+            return Task.CompletedTask;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error adding artwork: {ex.Message}");
+            throw;
+        }
+    }
+
+    public Task UpdateAsync(Artwork artwork)
+    {
+        try{
+        Artwork? existingArtwork = list.FirstOrDefault(e => e.Id == artwork.Id);
+        if (existingArtwork != null)
+        {
+            existingArtwork.Title = artwork.Title;
+            existingArtwork.Author = artwork.Author;
+            existingArtwork.Year = artwork.Year;
+            existingArtwork.Description = artwork.Description;
+            existingArtwork.Technique = artwork.Technique;
+            existingArtwork.ImageUrl = artwork.ImageUrl;
+        }
+            return Task.CompletedTask;
+        }catch (Exception ex)
+        {
+            Console.WriteLine($"Error updating artwork: {ex.Message}");
+            throw;
+        }
+    }
+
+    public async Task DeleteAsync(int id)
+    {
+        try
+        {
+            list.RemoveAll(e => e.Id == id);
+            return;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error deleting artwork: {ex.Message}");
+            throw;
+        }
     }
 }

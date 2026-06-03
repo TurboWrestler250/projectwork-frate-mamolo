@@ -3,9 +3,8 @@
 @if(_artwork is not null)
 {
     <PageTitle>Home / @_artwork.Title</PageTitle>
-    <h2>@_artwork.Title</h2>
-    <img src="@_artwork.ImageUrl" alt="Alternate Text" style="max-width: 200px">
-    <italics><p>@_artwork.Author</p></italics>
+    <img src="@_artwork.ImageUrl" alt="Alternate Text" style="max-width: 500px">
+    <italics><p>@_artwork.Author, @_artwork.Year</p></italics>
     <h1>@_artwork.Title</h1>
     <p>@_artwork.Technique</p>
     <p>@_artwork.Description</p>
