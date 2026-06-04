@@ -4,6 +4,7 @@ PAGINE
 		title				string, 1 min, 255 max
 		description			string, 1 min, 65.535 max
 		start_date			date, from '1000-01-01' to '9999-12-31'
+		end_date			date, from '1000-01-01' to '9999-12-31'
 		image_url			string, 1 min, 4.096 max
 		state				('active', 'upcoming', 'archived')
 

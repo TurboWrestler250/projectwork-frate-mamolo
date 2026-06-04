@@ -1,7 +1,5 @@
-using backend.ApiService;
 using backend.ApiService.Endpoints;
 using backend.ApiService.Services;
-using Dapper;
 //using System;
 
 //SqlMapper.AddTypeHandler(new GuidTypeHandler());
@@ -43,7 +41,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<IArtworksDataAccess, ArtworksDataAccess>();
-//builder.Services.AddScoped<IArtworksDataAccess, ArtworksDataAccess>();
+builder.Services.AddScoped<IExhibitionsDataAccess, ExhibitionsDataAccess>();
 //builder.Services.AddScoped<IArtworksDataAccess, ArtworksDataAccess>();
 //builder.Services.AddScoped<IArtworksDataAccess, ArtworksDataAccess>();
 
@@ -78,5 +76,6 @@ if (app.Environment.IsDevelopment())
 //app.MapDefaultEndpoints();
 
 app.MapArtworksEndpoints();
+app.MapExhibitionsEndpoints();
 
 app.Run();

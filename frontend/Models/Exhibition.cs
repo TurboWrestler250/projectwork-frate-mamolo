@@ -11,11 +11,11 @@ public class Exhibition
     [StringLength(10000, MinimumLength = 1)]
     public string Description { get; set; } = default!;
     [Required]
-    [DataType(DataType.Date)]
-    public DateOnly StartDate { get; set; }
+    [DataType(DataType.DateTime)]
+    public DateTime StartDate { get; set; }
     [Required]
-    [DataType(DataType.Date)]
-    public DateOnly EndDate { get; set; }
+    [DataType(DataType.DateTime)]
+    public DateTime EndDate { get; set; }
     [StringLength(1000, MinimumLength = 1)]
     public string ImageUrl { get; set; } = default!;
     [Required]

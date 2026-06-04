@@ -120,6 +120,48 @@ CREATE TABLE tickets (
         ON DELETE SET NULL
 );
 
+INSERT INTO exhibitions (
+    title,
+    description,
+    start_date,
+    end_date,
+    image_url,
+    status
+)
+VALUES
+(
+    'Arte Rinascimentale Italiana',
+    'Un viaggio attraverso le opere più importanti del Rinascimento italiano, tra Firenze, Roma e Venezia.',
+    '2026-01-10',
+    '2026-03-30',
+    'https://example.com/images/rinascimento.jpg',
+    'upcoming'
+),
+(
+    'Arte Moderna del Novecento',
+    'Esposizione dedicata ai grandi movimenti artistici del XX secolo, dal Futurismo all’Espressionismo.',
+    '2025-09-01',
+    '2025-12-15',
+    'https://example.com/images/novecento.jpg',
+    'active'
+),
+(
+    'Contemporary Digital Art',
+    'Mostra dedicata all’arte digitale contemporanea, NFT e installazioni multimediali.',
+    '2024-05-01',
+    '2024-08-01',
+    'https://example.com/images/digital_art.jpg',
+    'archived'
+),
+(
+    'Sculture Classiche Greco-Romane',
+    'Collezione di sculture e reperti dell’antichità classica, provenienti da musei europei.',
+    '2026-04-01',
+    '2026-09-30',
+    'https://example.com/images/sculture.jpg',
+    'upcoming'
+);
+
 INSERT INTO artworks (
     id,
     title,

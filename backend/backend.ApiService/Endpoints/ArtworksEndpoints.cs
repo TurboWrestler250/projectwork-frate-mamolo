@@ -35,8 +35,7 @@ public static class ArtworksEndpoints
         return TypedResults.Ok(artwork); // 200 OK
     }
 
-    private static Created<Artwork> AddArtwork(Artwork artwork,
-                                               IArtworksDataAccess data)
+    private static Created<Artwork> AddArtwork(Artwork artwork, IArtworksDataAccess data)
     {
         data.AddArtwork(artwork);
 

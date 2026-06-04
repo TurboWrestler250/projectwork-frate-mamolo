@@ -19,7 +19,7 @@ public class Reservation
     public int NumberOfPeople { get; set; } = 1;
     [Required]
     [DataType(DataType.Date)]
-    public DateOnly Date { get; set; }
+    public DateTime Date { get; set; }
     [Required]
     [RegularExpression("^(Confermed|Pending|Denied)$")]
     public string Status { get; set; } = "Pending";
