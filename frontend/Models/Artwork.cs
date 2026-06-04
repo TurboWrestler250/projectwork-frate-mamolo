@@ -13,7 +13,7 @@ public class Artwork
     [StringLength(255, MinimumLength = 1)]
     public string Author { get; set; } = default!;
     [Required]
-    public short? CreatedYear { get; set; }
+    public short? Year { get; set; }
     [Required]
     [StringLength(65535, MinimumLength = 1)]
     public string Description { get; set; } = default!;

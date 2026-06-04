@@ -9,11 +9,11 @@ public class ArtworksService : IArtworksService
     // GET: api/artworks
     public async Task<IEnumerable<Artwork>> GetAllAsync()
     {
-        return await _httpClient.GetFromJsonAsync<IEnumerable<Artwork>>("artworks") ?? list;
+        return await _httpClient.GetFromJsonAsync<IEnumerable<Artwork>>("artworks");
     }
 
     // GET: api/artworks/{id}
-    public async Task<Artwork?> GetItemByIdAsync(Guid id)
+    public async Task<Artwork?> GetItemByIdAsync(int id)
     {
         return await _httpClient.GetFromJsonAsync<Artwork>($"artworks/{id}");
     }
@@ -49,7 +49,7 @@ public class ArtworksService : IArtworksService
     }
 
     // DELETE: api/artworks/{id}
-    public async Task DeleteAsync(Guid id)
+    public async Task DeleteAsync(int id)
     {
         try
         {

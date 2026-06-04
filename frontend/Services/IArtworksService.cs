@@ -5,8 +5,8 @@ namespace frontend.Services;
 public interface IArtworksService
 {
     Task<IEnumerable<Artwork>> GetAllAsync();
-    Task<Artwork?> GetItemByIdAsync(Guid id);
+    Task<Artwork?> GetItemByIdAsync(int id);
     Task AddAsync(Artwork artwork);
     Task UpdateAsync(Artwork artwork);
-    Task DeleteAsync(Guid id);
+    Task DeleteAsync(int id);
 }
