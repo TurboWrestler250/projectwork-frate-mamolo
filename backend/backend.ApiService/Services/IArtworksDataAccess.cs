@@ -5,6 +5,6 @@ using backend.ApiService.Models;
 public interface IArtworksDataAccess
 {
     IEnumerable<Artwork> GetArtworks();
-    Artwork? GetArtworkById(Guid id);
+    Artwork? GetArtworkById(int id);
     void AddArtwork(Artwork artwork);
 }

@@ -4,7 +4,7 @@ using backend.ApiService.Services;
 using Dapper;
 //using System;
 
-SqlMapper.AddTypeHandler(new GuidTypeHandler());
+//SqlMapper.AddTypeHandler(new GuidTypeHandler());
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,6 +58,11 @@ app.UseCors("AllowFrontend");
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwaggerUI(options =>
+    {
+        // address https://localhost:7169/swagger/index.html
+        options.SwaggerEndpoint("/openapi/v1.json", "Sample Web API");
+    });
 }
 
 

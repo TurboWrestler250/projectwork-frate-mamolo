@@ -1,6 +1,6 @@
 PAGINE
 	-EXHIBITIONS
-		id					binary, 16 fix
+		id					int
 		title				string, 1 min, 255 max
 		description			string, 1 min, 65.535 max
 		start_date			date, from '1000-01-01' to '9999-12-31'
@@ -8,7 +8,7 @@ PAGINE
 		state				('active', 'upcoming', 'archived')
 
 	-ARTWORKS
-		id					binary, 16 fix
+		id					int
 		title				string, 1 min, 255 max
 		author				string, 1 min, 255 max
 		created_year		int, -32.768 min, 32.767 max
@@ -18,7 +18,7 @@ PAGINE
 		exhibition_id		binary, 16 fix
 		
 	-GUIDED TOURS
-		id					binary, 16 fix
+		id					int
 		title				string, 1 min, 255 max
 		description			string, 1 min, 65.535 max
 		date				date, from '1970-01-01 00:00:01.000000' to '2038-01-19 03:14:07.499999'
