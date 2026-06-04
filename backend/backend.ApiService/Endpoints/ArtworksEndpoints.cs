@@ -13,7 +13,7 @@ public static class ArtworksEndpoints
         // GET /api/artworks
         group.MapGet("", GetArtworks);
         // GET /api/artworks/123
-        group.MapGet("{id:int}", GetArtworksById);
+        group.MapGet("{id:int}", GetArtworkById);
         // POST /api/artworks
         group.MapPost("", AddArtwork);
 
@@ -26,7 +26,7 @@ public static class ArtworksEndpoints
         return TypedResults.Ok(list); // 200 OK
     }
 
-    private static Results<NotFound, Ok<Artwork>> GetArtworksById(Guid id, IArtworksDataAccess data)
+    private static Results<NotFound, Ok<Artwork>> GetArtworkById(int id, IArtworksDataAccess data)
     {
         var artwork = data.GetArtworkById(id);
         if (artwork is null)

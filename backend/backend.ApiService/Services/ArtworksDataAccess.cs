@@ -39,7 +39,7 @@ public class ArtworksDataAccess : IArtworksDataAccess
         }
     }
 
-    public Artwork? GetArtworkById(Guid id)
+    public Artwork? GetArtworkById(int id)
     {
         try
         {
@@ -55,7 +55,7 @@ public class ArtworksDataAccess : IArtworksDataAccess
                     image_url as ImageUrl,
                     exhibition_id as ExhibitionId
                 FROM artworks
-                WHERE id = @id
+                WHERE id = @Id
                 """;
             return connection.QueryFirstOrDefault<Artwork>(query, new { id });
         }
@@ -91,6 +91,6 @@ public class ArtworksDataAccess : IArtworksDataAccess
             );
             """;
         //SELECT last_insert_id();
-        artwork.Id = connection.ExecuteScalar<Guid>(query, artwork);
+        artwork.Id = connection.ExecuteScalar<int>(query, artwork);
     }
 }
