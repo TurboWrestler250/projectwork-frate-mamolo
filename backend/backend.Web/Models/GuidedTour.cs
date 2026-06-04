@@ -2,7 +2,7 @@
 
 namespace backend.Models
 {
-    public class GuidedTourPrenotation
+    public class GuidedTour
     {
         public int Id { get; set; }
         [Required]
