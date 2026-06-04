@@ -4,7 +4,14 @@ using frontend.Models;
 
 public class ExhibitionsService : IExhibitionsService
 {
-    private readonly HttpClient _httpClient = new();
+    private readonly HttpClient _httpClient;
+    public ExhibitionsService(IConfiguration configuration)
+    {
+        _httpClient = new HttpClient
+        {
+            BaseAddress = new Uri(configuration["ApiBaseUrl"] ?? throw new InvalidOperationException("API base URL is not configured."))
+        };
+    }
 
     public async Task<IEnumerable<Exhibition>> GetAllAsync()
     {

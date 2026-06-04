@@ -4,12 +4,19 @@ using frontend.Models;
 
 public class ArtworksService : IArtworksService
 {
-    private readonly HttpClient _httpClient = new();
+    private readonly HttpClient _httpClient;
+    public ArtworksService(IConfiguration configuration)
+    {
+        _httpClient = new HttpClient
+        {
+            BaseAddress = new Uri(configuration["ApiBaseUrl"] ?? throw new InvalidOperationException("API base URL is not configured."))
+        };
+    }
 
     // GET: api/artworks
     public async Task<IEnumerable<Artwork>> GetAllAsync()
     {
-        return await _httpClient.GetFromJsonAsync<IEnumerable<Artwork>>("artworks");
+        return await _httpClient.GetFromJsonAsync<IEnumerable<Artwork>>("artworks") ?? new List<Artwork>();
     }
 
     // GET: api/artworks/{id}

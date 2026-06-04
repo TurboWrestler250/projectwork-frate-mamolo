@@ -7,12 +7,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-var apiBase = builder.Configuration["ApiBaseUrl"] ?? builder.Configuration["Logging:Endpoints"] ?? "https://localhost:7200/";
-builder.Services.AddHttpClient<IArtworksService, ArtworksService>(client => { client.BaseAddress = new Uri(apiBase); });
+var apiBase = builder.Configuration["ApiBaseUrl"] ?? builder.Configuration["Logging:Endpoints"] ?? "https://localhost:5521/api";
+builder.Services.AddHttpClient<IArtworksService, ArtworksService>(
+    client => { client.BaseAddress = new Uri(apiBase);
+});
 
 builder.Services.AddScoped<IExhibitionsService, ExhibitionsService>();
 builder.Services.AddScoped<IArtworksService, ArtworksService>();
-builder.Services.AddHttpClient<IGuidedToursService, GuidedToursService>(client => { client.BaseAddress = new Uri(apiBase); });
+builder.Services.AddHttpClient<IGuidedToursService, GuidedToursService>(
+    client => { client.BaseAddress = new Uri(apiBase);
+});
 
 
 var app = builder.Build();

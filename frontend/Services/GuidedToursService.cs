@@ -5,10 +5,15 @@ namespace frontend.Services;
 
 public class GuidedToursService : IGuidedToursService
 {
-    private static readonly ExhibitionsService _exhibitions = new();
+    private static readonly ExhibitionsService _exhibitions;
     private readonly HttpClient _httpClient;
-
-    public GuidedToursService(HttpClient httpClient) => _httpClient = httpClient;
+    public GuidedToursService(IConfiguration configuration)
+    {
+        _httpClient = new HttpClient
+        {
+            BaseAddress = new Uri(configuration["ApiBaseUrl"] ?? throw new InvalidOperationException("API base URL is not configured."))
+        };
+    }
 
     //public Task<IEnumerable<GuidedTour>> GetAllAsync()
     //{
@@ -18,13 +23,13 @@ public class GuidedToursService : IGuidedToursService
 
     public async Task<GuidedTour?> GetItemByIdAsync(int id)
     {
-        return await _httpClient.GetFromJsonAsync<GuidedTour>($"api/guidedtours/{id}");
+        return await _httpClient.GetFromJsonAsync<GuidedTour>($"guidedtours{id}");
     }
 
     public async Task<List<GuidedTour>> GetAllAsync()
     {
         try{
-            return await _httpClient.GetFromJsonAsync<List<GuidedTour>>("api/guidedtours") ?? new List<GuidedTour>();
+            return await _httpClient.GetFromJsonAsync<List<GuidedTour>>("guidedtours") ?? new List<GuidedTour>();
         }
         catch (Exception ex)
         {
@@ -35,7 +40,7 @@ public class GuidedToursService : IGuidedToursService
 
     public async Task InsertAsync(GuidedTour item)
     {
-        await _httpClient.PostAsJsonAsync("api/guidedtours", item);
+        await _httpClient.PostAsJsonAsync("guidedtours", item);
         return;
     }
 }
