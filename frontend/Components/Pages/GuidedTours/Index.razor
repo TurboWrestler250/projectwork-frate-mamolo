@@ -1,0 +1,114 @@
+﻿@page "/guidedtours"
+
+@inject IGuidedToursService guidedToursService
+@inject IExhibitionsService exhibitionsService
+
+<h3>Visite guidate</h3>
+
+<EditForm Model="_guidedtour" OnValidSubmit="SaveAsync" FormName="GuidedTourForm">
+	<DataAnnotationsValidator />
+
+	<div class="row">
+		<label for="title">Title</label>
+		<InputText id="title" class="form-control" @bind-Value="_guidedtour.Title" />
+	</div>
+	<div class="row">
+		<label for="description">Description</label>
+		<InputText id="description" class="form-control" @bind-Value="_guidedtour.Description" />
+	</div>
+	<div class="row">
+		<label for="date">Date</label>
+		<InputDate id="date" class="form-control" @bind-Value="_guidedtour.Date" />
+	</div>
+	<div class="row">
+		<label for="duration">Duration</label>
+		@* <input type="time" id="duration" class="form-control" @bind="_guidedtour.Duration" /> *@
+		<div class="d-flex gap-2">
+			<InputNumber class="form-control" @bind-Value="DurationHours" min="0" max="24" placeholder="Hours" />
+			<InputNumber class="form-control" @bind-Value="DurationMinutes" min="0" max="59" placeholder="Minutes" />
+		</div>
+	</div>
+	<div class="row">
+		<label for="guidename">Name of tourist guide</label>
+		<InputText id="guidename" class="form-control" @bind-Value="_guidedtour.GuideName" />
+	</div>
+	<div class="row">
+		<label for="guidesurname">Surname of tourist guide</label>
+		<InputText id="guidesurname" class="form-control" @bind-Value="_guidedtour.GuideSurname" />
+	</div>
+	<div class="row">
+		<label for="maxparticipants">Max People</label>
+		<InputNumber id="maxparticipants" class="form-control" @bind-Value="_guidedtour.MaxParticipants" />
+	</div>
+	<div class="row">
+		<label for="exhibitions">Exhibitions</label>
+		@if (_exhibitions.Any())
+		{
+			<InputSelect TValue="string" id="exhibitions" class="form-control" @bind-Value="_guidedtour.Exhibition">
+				<option value="" disabled selected>-- seleziona --</option>
+				@foreach (var t in _exhibitions)
+				{
+					<option value="@t.Title">@t.Title</option>
+				}
+			</InputSelect>
+		}
+		else
+		{
+			<select class="form-control" disabled><option>Loading...</option></select>
+		}
+	</div>
+
+	@* https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/?view=aspnetcore-9.0 *@
+
+	<button type="submit" class="btn btn-primary">Save</button>
+</EditForm>
+
+@* tabella delle guide turistiche *@
+
+<hr class="my-3" />
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>Title</td>
+			<td>Description</td>
+			<td>Date</td>
+			<td>Duration</td>
+			<td>Name of tour guide</td>
+			<td>Surname of tour guide</td>
+			<td>MaxParticipants</td>
+			<td>Exhibition</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var m in _list)
+		{
+			<tr>
+				<td>
+					@m.Title
+				</td>
+				<td>
+					@m.Description
+				</td>
+				<td>
+					@m.Date.ToString("dd MMM yyy HH:mm")
+				</td>
+				<td>
+					@m.Duration
+				</td>
+				<td>
+					@m.GuideName
+				</td>
+				<td>
+					@m.GuideSurname
+				</td>
+				<td>
+					@m.MaxParticipants
+				</td>
+				<td>
+					@m.Exhibition
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

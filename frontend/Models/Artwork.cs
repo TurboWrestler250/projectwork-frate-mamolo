@@ -6,13 +6,12 @@ public class Artwork
 {
     public int Id { get; set; }
     [Required]
-    [StringLength(100, MinimumLength = 1)]
+    [StringLength(255, MinimumLength = 1)]
     public string Title { get; set; } = default!;
     [Required]
-    [StringLength(100, MinimumLength = 1)]
+    [StringLength(255, MinimumLength = 1)]
     public string Author { get; set; } = default!;
-    [Required]
-    public int Year { get; set; }
+    public short Year { get; set; }
     [Required]
     [StringLength(10000, MinimumLength = 1)]
     public string Description { get; set; } = default!;

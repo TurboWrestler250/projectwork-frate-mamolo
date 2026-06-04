@@ -9,6 +9,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddScoped<IExhibitionsService, ExhibitionsService>();
 builder.Services.AddScoped<IArtworksService, ArtworksService>();
+builder.Services.AddScoped<IGuidedToursService, GuidedToursService>();
 
 var app = builder.Build();
 

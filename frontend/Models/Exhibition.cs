@@ -8,7 +8,6 @@ public class Exhibition
     [Required]
     [StringLength(100, MinimumLength = 1)]
     public string Title { get; set; } = default!;
-    [Required]
     [StringLength(10000, MinimumLength = 1)]
     public string Description { get; set; } = default!;
     [Required]
@@ -17,7 +16,6 @@ public class Exhibition
     [Required]
     [DataType(DataType.Date)]
     public DateOnly EndDate { get; set; }
-    [Required]
     [StringLength(1000, MinimumLength = 1)]
     public string ImageUrl { get; set; } = default!;
     [Required]

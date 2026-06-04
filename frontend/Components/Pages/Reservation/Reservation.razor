@@ -1,0 +1,98 @@
+﻿@* @page "/reservation"
+
+@inject IExhibitionsService ExhibitionsService
+
+<PageTitle>Reservation</PageTitle>
+
+<h3>Reservation</h3>
+
+<EditForm Model="_guidedtour" OnValidSubmit="SaveAsync" FormName="SegnalazioniForm">
+	<DataAnnotationsValidator />
+
+	<div class="row">
+		<label for="utente">Utente</label>
+		<InputText id="utente" class="form-control" @bind-Value="_guidedtour.Utente" />
+	</div>
+	<div class="row">
+		<label for="txtTitolo">Titolo</label>
+		<InputText id="titolo" class="form-control" @bind-Value="_guidedtour.Titolo" />
+	</div>
+	<div class="row">
+		<label for="descrizione">Descrizione</label>
+		<InputText id="descrizione" class="form-control" @bind-Value="_guidedtour.Descrizione" />
+	</div>
+	<div class="row">
+		<label for="tipologia">Tipologia</label>
+		@if (_interventi.Any())
+		{
+			<InputSelect TValue="string" id="tipologia" class="form-control" @bind-Value="_guidedtour.Tipologia">
+				<option value="" disabled selected>-- seleziona --</option>
+				@foreach (var t in _interventi)
+				{
+					<option value="@t.Nome">@t.Nome</option>
+				}
+			</InputSelect>
+		}
+		else
+		{
+			<select class="form-control" disabled><option>Caricamento...</option></select>
+		}
+	</div>
+	<div class="row">
+		<InputRadioGroup TValue="string" @bind-Value="@_guidedtour.Stato">
+			<label>Stato:</label>
+			<br>
+			@foreach (var state in _stati)
+			{
+				var id = $"stato_{state}";
+				<div class="form-check">
+					<InputRadio class="form-check-input" id="@id" TValue="string" Value="@state" />
+					<label class="form-check-label" for="@id">@state</label>
+				</div>
+			}
+		</InputRadioGroup>
+	</div>
+	@* https://learn.microsoft.com/en-us/aspnet/core/blazor/forms/?view=aspnetcore-9.0 *@
+
+@* 	<button type="submit" class="btn btn-primary">Salva</button>
+</EditForm>
+
+<hr class="my-3" />
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>Utente</td>
+			<td>Titolo</td>
+			<td>Descrizione</td>
+			<td>Tipologia</td>
+			<td>Stato</td>
+			<td>Data</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var m in _list)
+		{
+			<tr>
+				<td>
+					@m.Utente
+				</td>
+				<td>
+					@m.Titolo
+				</td>
+				<td>
+					@m.Descrizione
+				</td>
+				<td>
+					@m.Tipologia
+				</td>
+				<td>
+					@m.Stato
+				</td>
+				<td>
+					@m.Data.ToString("dd MMM yyy HH:mm")
+				</td>
+			</tr>
+		}
+	</tbody>
+</table> *@
