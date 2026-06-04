@@ -1,0 +1,20 @@
+﻿@page "/tickets"
+
+<PageTitle>Tickets</PageTitle>
+
+<h2>Buy Ticket</h2>
+
+<form>
+    <input type="text" name="Name" placeholder="Name "/>
+    <input type="text" name="Surname" placeholder="Surname" />
+    <input type="email" name="Email" placeholder="Email" />
+    <input type="radio" name="ticket-type" value="Free" >
+    <label for="free">Free</label>
+    <input type="radio" name="ticket-type" value="Full-Price">
+    <label for="full-price">Full Price</label>
+    <input type="radio" name="ticket-type" value="Reduced">
+    <label for="reduced">Reduced</label>
+    <input type="number" name="quantity" min="1" >
+    <label for="quantity">Number of tickets</label>
+    <select name="Exhibition">Select the exhibition:</select>
+</form>
