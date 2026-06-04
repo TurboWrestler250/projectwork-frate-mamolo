@@ -2,10 +2,10 @@
 
 namespace frontend.Services
 {
-    public class TicketService
+    public class TicketsService : ITicketsService
     {
         private readonly HttpClient _httpClient;
-        public TicketService(IConfiguration configuration)
+        public TicketsService(IConfiguration configuration)
         {
             _httpClient = new HttpClient
             {

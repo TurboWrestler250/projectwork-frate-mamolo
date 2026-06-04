@@ -4,17 +4,36 @@
 
 <h2>Buy Ticket</h2>
 
-<form>
-    <input type="text" name="Name" placeholder="Name "/>
-    <input type="text" name="Surname" placeholder="Surname" />
-    <input type="email" name="Email" placeholder="Email" />
-    <input type="radio" name="ticket-type" value="Free" >
-    <label for="free">Free</label>
-    <input type="radio" name="ticket-type" value="Full-Price">
-    <label for="full-price">Full Price</label>
-    <input type="radio" name="ticket-type" value="Reduced">
-    <label for="reduced">Reduced</label>
-    <input type="number" name="quantity" min="1" >
+<EditForm EditContext="editContext" OnValidSubmit="CreateTicket">
+
+    <InputText class="form-control" placeholder="Name"
+        @bind-Value="Ticket.VisitorName" />
+        <ValidationMessage For="@(() => Ticket.VisitorName)" />
+
+    <InputText class="form-control" placeholder="Surame"
+               @bind-Value="Ticket.VisitorSurname" />
+    <ValidationMessage For="@(() => Ticket.VisitorSurname)" />
+
+    <InputText class="form-control" placeholder="Email"
+               @bind-Value="Ticket.Email" />
+    <ValidationMessage For="@(() => Ticket.Email)" />
+
+    <InputRadio class="form-control"
+               @bind-Value="Ticket.Type" />
+        <ValidationMessage For="@(() => Ticket.Type)" />
+        <label for="free">Free</label>
+        <input type="radio" name="ticket-type" value="Full-Price">
+        <label for="full-price">Full Price</label>
+        <input type="radio" name="ticket-type" value="Reduced">
+        <label for="reduced">Reduced</label>
+
+    <InputNumber class="form-control"
+               @bind-Value="Ticket.Quantity" />
+    <ValidationMessage For="@(() => Ticket.Quantity)" />
     <label for="quantity">Number of tickets</label>
-    <select name="Exhibition">Select the exhibition:</select>
-</form>
+
+    @* <select name="Exhibition">Select the exhibition:</select>  va presa la lista *@
+
+    <button type="submit" class="btn btn-primary">Buy</button>
+
+</EditForm>

@@ -14,6 +14,7 @@ builder.Services.AddHttpClient<IArtworksService, ArtworksService>(
 
 builder.Services.AddScoped<IExhibitionsService, ExhibitionsService>();
 builder.Services.AddScoped<IArtworksService, ArtworksService>();
+builder.Services.AddScoped<ITicketsService, TicketsService>();
 builder.Services.AddHttpClient<IGuidedToursService, GuidedToursService>(
     client => { client.BaseAddress = new Uri(apiBase);
 });
