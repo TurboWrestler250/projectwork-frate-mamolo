@@ -31,7 +31,7 @@ public class ArtworksService : IArtworksService
             We've known each other for so long Your heart's been aching, but you're too shy to say it Inside, we both know what's been going on We know the game, and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you
             """,
             Technique = "Olio su tela",
-            ImageUrl = "https://img.bgstatic.com/multiLang/web/44528784f7bc9c0f6cb1ad0e4cc23f5d.jpg"
+            ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUGDQMV6gUMEDb1rrcLsioe0L5vyV-VzVFq2J0Vc4KXTHFO6AWozjtgSA&s=10"
         },
         new Artwork
         {

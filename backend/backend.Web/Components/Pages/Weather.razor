@@ -1,4 +1,4 @@
-﻿@page "/weather"
+﻿@* @page "/weather"
 @attribute [StreamRendering(true)]
 @attribute [OutputCache(Duration = 5)]
 
@@ -47,3 +47,4 @@ else
         forecasts = await WeatherApi.GetWeatherAsync();
     }
 }
+ *@
