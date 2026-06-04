@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 public class Artwork
 {
     [Required]
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     [Required]
     [StringLength(255, MinimumLength = 1)]
     public string Title { get; set; } = default!;
@@ -23,5 +23,5 @@ public class Artwork
     [Required]
     [StringLength(4096, MinimumLength = 1)]
     public string ImageUrl { get; set; } = default!;
-    public Guid? ExhibitionId { get; set; } = null;
+    public int? ExhibitionId { get; set; } = null;
 }
