@@ -57,3 +57,7 @@ WIKI PROJECT
 # visite guidate
 - nome e cognome non obbligatori, la persona in attesa, la visitua guidata già calendarizzata
 - utilizzo di PeriodicTimer introdotto in .NET 6 connesso a System.Threading per attività asincrona
+
+-------------------------------------------------------------
+
+api: http://localhost:5521/api/[classe]
