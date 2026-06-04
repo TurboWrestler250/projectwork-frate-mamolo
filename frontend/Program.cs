@@ -9,7 +9,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddScoped<IExhibitionsService, ExhibitionsService>();
 builder.Services.AddScoped<IArtworksService, ArtworksService>();
-builder.Services.AddScoped<IGuidedToursService, GuidedToursService>();
+builder.Services.AddHttpClient<IGuidedToursService, GuidedToursService>(client => { client.BaseAddress = new Uri(apiBase); });
 
 var apiBase = builder.Configuration["ApiBaseUrl"] ?? builder.Configuration["Logging:Endpoints"] ?? "https://localhost:7200/";
 builder.Services.AddHttpClient<IArtworksService, ArtworksService>(client => { client.BaseAddress = new Uri(apiBase); });

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 public class GuidedTour
 {
     [Required]
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     [Required]
     [StringLength(100, MinimumLength = 1)]
     public string Title { get; set; } = "TITLE_DEFAULT";

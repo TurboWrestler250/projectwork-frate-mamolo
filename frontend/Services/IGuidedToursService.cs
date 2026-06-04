@@ -4,8 +4,8 @@ namespace frontend.Services
 {
     public interface IGuidedToursService
     {
-        Task<List<GuidedTour>> GetAllAsync();
-        Task<GuidedTour?> GetItemByIdAsync(Guid id);
-        Task InsertAsync(GuidedTour item);
+    Task<List<GuidedTour>> GetAllAsync();
+    Task<GuidedTour?> GetItemByIdAsync(int id);
+    Task InsertAsync(GuidedTour item);
     }
 }

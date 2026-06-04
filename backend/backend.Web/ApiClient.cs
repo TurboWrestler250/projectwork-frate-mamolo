@@ -13,27 +13,27 @@ public class ApiClient(HttpClient httpClient)
     }
 
     [HttpGet("{id}", Name ="GetArtworkFromId")]
-    public Task<IEnumerable<Artwork>> GetArtworksAsync(int id)
+    public Task<Artwork> GetArtworkFromId(int id)
     {
-        return httpClient.GetFromJsonAsync<IEnumerable<Artwork>>($"api/artworks/{id}");
+        return httpClient.GetFromJsonAsync<Artwork>($"api/artworks/{id}");
     }
 
     [HttpPost(Name = "AddArtwork")]
-    public Task AddArtworkAsync(Artwork artwork)
+    public Task<HttpResponseMessage> AddArtworkAsync(Artwork artwork)
     {
         return httpClient.PostAsJsonAsync("api/artworks", artwork);
     }
 
     [HttpPut(Name = "UpdateArtwork")]
-    public Task UpdateArtworkAsync(Artwork artwork)
+    public Task<HttpResponseMessage> UpdateArtworkAsync(Artwork artwork)
     {
         return httpClient.PutAsJsonAsync("api/artworks", artwork);
     }
 
     [HttpDelete("{id}", Name = "DeleteArtwork")]
-    public void DeleteArtworkAsync(int id)
+    public Task<HttpResponseMessage> DeleteArtworkAsync(int id)
     {
-        httpClient.DeleteAsync($"api/artworks/{id}");
+        return httpClient.DeleteAsync($"api/artworks/{id}");
     }
 
     [HttpGet(Name = "GetAllExhibitions")]
@@ -55,13 +55,13 @@ public class ApiClient(HttpClient httpClient)
     }
 
     [HttpGet("{id}", Name = "GetGuidedTourFromId")]
-    public Task<GuidedTour> GetGuidedTourFromId(Guid id)
+    public Task<GuidedTour> GetGuidedTourFromId(int id)
     {
         return httpClient.GetFromJsonAsync<GuidedTour>($"api/guidedtours/{id}");
     }
 
     [HttpPost(Name = "AddGuidedTour")]
-    public Task AddGuidedTourAsync(GuidedTour guidedTour)
+    public Task<HttpResponseMessage> AddGuidedTourAsync(GuidedTour guidedTour)
     {
         return httpClient.PostAsJsonAsync("api/guidedtours", guidedTour);
     }
