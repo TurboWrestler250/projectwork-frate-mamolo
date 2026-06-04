@@ -1,5 +1,10 @@
-using backend.Web;
-using System;
+using backend.ApiService;
+using backend.ApiService.Endpoints;
+using backend.ApiService.Services;
+using Dapper;
+//using System;
+
+SqlMapper.AddTypeHandler(new GuidTypeHandler());
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,17 +15,17 @@ builder.AddServiceDefaults();
 builder.Services.AddProblemDetails();
 
 // Add controllers so Web API endpoints can be exposed (e.g. /api/artworks)
-builder.Services.AddControllers();
+//builder.Services.AddControllers();
 
 // Configure a typed HttpClient for calling the API from this service/application.
 // The base address can be overridden by setting configuration key "ApiBaseUrl".
-builder.Services.AddHttpClient<ApiClient>(client =>
-{
-    var baseUrl = builder.Configuration["ApiBaseUrl"];
-    client.BaseAddress = string.IsNullOrEmpty(baseUrl)
-        ? new Uri("https://localhost:7200/")
-        : new Uri(baseUrl);
-});
+//builder.Services.AddHttpClient<ApiClient>(client =>
+//{
+//    var baseUrl = builder.Configuration["ApiBaseUrl"];
+//    client.BaseAddress = string.IsNullOrEmpty(baseUrl)
+//        ? new Uri("https://localhost:7200/")
+//        : new Uri(baseUrl);
+//});
 
 // Allow frontend apps to call these endpoints. Adjust origins to match your frontend.
 builder.Services.AddCors(options =>
@@ -37,6 +42,11 @@ builder.Services.AddCors(options =>
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+builder.Services.AddScoped<IArtworksDataAccess, ArtworksDataAccess>();
+//builder.Services.AddScoped<IArtworksDataAccess, ArtworksDataAccess>();
+//builder.Services.AddScoped<IArtworksDataAccess, ArtworksDataAccess>();
+//builder.Services.AddScoped<IArtworksDataAccess, ArtworksDataAccess>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -51,8 +61,17 @@ if (app.Environment.IsDevelopment())
 }
 
 
-app.MapControllers();
+//app.MapControllers();
 
-app.MapDefaultEndpoints();
+/*
+ * /health: Endpoints di readiness che verifica se l'app è pronta a ricevere traffico (richiede il passaggio di tutti i health check). 
+ * /alive: Endpoints di liveness che verifica se il processo è ancora attivo e non ha crashato (richiede solo il passaggio dei check taggati come "live").
+ */
+/// <summary>
+/// Descrizione del metodo.
+/// </summary>
+//app.MapDefaultEndpoints();
+
+app.MapArtworksEndpoints();
 
 app.Run();

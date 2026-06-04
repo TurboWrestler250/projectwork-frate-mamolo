@@ -11,10 +11,10 @@ public class ArtworksService : IArtworksService
     [
         new Artwork
         {
-            Id = 1,
+            Id = new Guid(),
             Title = "Persistenza della memoria",
             Author = "Gerry Scotty",
-            Year = 67,
+            CreatedYear = 67,
             Description = """
             We're no strangers to love
             You know the rules and so do I
@@ -35,11 +35,11 @@ public class ArtworksService : IArtworksService
         },
         new Artwork
         {
-            Id= 2,
+            Id=  new Guid(),
             Title ="Skibidi toilet",
             Author = "Thomas Turbato",
             Description = "Skibidi toilet è un fenomeno virale che ha conquistato internet con la sua combinazione di musica orecchiabile e coreografie stravaganti. Il video originale, pubblicato su YouTube, mostra persone che ballano in modo bizzarro mentre indossano costumi da bagno e si muovono in modo sincronizzato. La canzone, con il suo ritmo contagioso, ha ispirato milioni di persone a creare i propri video di danza Skibidi, rendendo il fenomeno un successo globale. La popolarità del Skibidi toilet ha dimostrato come la creatività e l'umorismo possano unire le persone attraverso i social media, creando una comunità globale di fan che condividono la loro passione per questa stravagante tendenza.",
-            Year = 1690,
+            CreatedYear = 1690,
             Technique = "Aglio su pasta",
             ImageUrl = "https://m.media-amazon.com/images/M/MV5BMzgzMzY2MmMtMWNkNy00ZjVkLWIxOWUtZDJjODNmY2IyOWFiXkEyXkFqcGc@._V1_QL75_UX190_CR0,28,190,281_.jpg"
         }
@@ -52,7 +52,7 @@ public class ArtworksService : IArtworksService
     }
 
     // GET: api/artworks/{id}
-    public Task<Artwork?> GetItemByIdAsync(int id)
+    public Task<Artwork?> GetItemByIdAsync(Guid id)
     {
         Artwork? artwork = list.FirstOrDefault(e => e.Id == id);
 
@@ -84,7 +84,7 @@ public class ArtworksService : IArtworksService
             {
                 existingArtwork.Title = artwork.Title;
                 existingArtwork.Author = artwork.Author;
-                existingArtwork.Year = artwork.Year;
+                existingArtwork.CreatedYear = artwork.CreatedYear;
                 existingArtwork.Description = artwork.Description;
                 existingArtwork.Technique = artwork.Technique;
                 existingArtwork.ImageUrl = artwork.ImageUrl;
@@ -99,7 +99,7 @@ public class ArtworksService : IArtworksService
     }
 
     // DELETE: api/artworks/{id}
-    public async Task DeleteAsync(int id)
+    public async Task DeleteAsync(Guid id)
     {
         try
         {

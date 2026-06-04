@@ -1,4 +1,4 @@
-﻿namespace backend.Models;
+﻿namespace backend.ApiService.Models;
 
 using System.ComponentModel.DataAnnotations;
 

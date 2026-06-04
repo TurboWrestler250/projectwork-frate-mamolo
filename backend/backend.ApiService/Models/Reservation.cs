@@ -1,6 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace backend.ApiService.Models;
 
-namespace backend.Models;
+using System.ComponentModel.DataAnnotations;
 
 public class Reservation
 {
