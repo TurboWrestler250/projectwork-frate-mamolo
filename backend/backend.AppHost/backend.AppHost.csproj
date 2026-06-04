@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\backend.ApiService\backend.ApiService.csproj" />
-    <ProjectReference Include="..\backend.Web\backend.Web.csproj" />
   </ItemGroup>
 
 </Project>
