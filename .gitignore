@@ -3,4 +3,3 @@ bin/
 obj/
 *.user
 backend/backend.ApiServices/appsettings.json
-/backend/backend.ApiService/appsettings.json
