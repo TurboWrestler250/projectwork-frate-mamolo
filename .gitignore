@@ -2,4 +2,4 @@
 bin/
 obj/
 *.user
-appsettings.json
+backend/backend.ApiServices/appsettings.json
