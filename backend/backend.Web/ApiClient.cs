@@ -1,6 +1,6 @@
 namespace backend.Web;
 
-public class WeatherApiClient(HttpClient httpClient)
+public class ApiClient(HttpClient httpClient)
 {
     public async Task<WeatherForecast[]> GetWeatherAsync(int maxItems = 10, CancellationToken cancellationToken = default)
     {
