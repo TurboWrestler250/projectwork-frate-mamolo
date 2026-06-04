@@ -4,59 +4,18 @@ using frontend.Models;
 
 public class ArtworksService : IArtworksService
 {
-    private readonly HttpClient _http;
-    //public ArtworksService(HttpClient http) => _http = http;
-
-    private static readonly List<Artwork> list =
-    [
-        new Artwork
-        {
-            Id = new Guid(),
-            Title = "Persistenza della memoria",
-            Author = "Gerry Scotty",
-            CreatedYear = 67,
-            Description = """
-            We're no strangers to love
-            You know the rules and so do I
-            A full commitment's what I'm thinking of
-            You wouldn't get this from any other guy
-            I just wanna tell you how I'm feeling
-            Gotta make you understand
-            Never gonna give you up
-            Never gonna let you down
-            Never gonna run around and desert you
-            Never gonna make you cry
-            Never gonna say goodbye
-            Never gonna tell a lie and hurt you
-            We've known each other for so long Your heart's been aching, but you're too shy to say it Inside, we both know what's been going on We know the game, and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you
-            """,
-            Technique = "Olio su tela",
-            ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUGDQMV6gUMEDb1rrcLsioe0L5vyV-VzVFq2J0Vc4KXTHFO6AWozjtgSA&s=10"
-        },
-        new Artwork
-        {
-            Id=  new Guid(),
-            Title ="Skibidi toilet",
-            Author = "Thomas Turbato",
-            Description = "Skibidi toilet è un fenomeno virale che ha conquistato internet con la sua combinazione di musica orecchiabile e coreografie stravaganti. Il video originale, pubblicato su YouTube, mostra persone che ballano in modo bizzarro mentre indossano costumi da bagno e si muovono in modo sincronizzato. La canzone, con il suo ritmo contagioso, ha ispirato milioni di persone a creare i propri video di danza Skibidi, rendendo il fenomeno un successo globale. La popolarità del Skibidi toilet ha dimostrato come la creatività e l'umorismo possano unire le persone attraverso i social media, creando una comunità globale di fan che condividono la loro passione per questa stravagante tendenza.",
-            CreatedYear = 1690,
-            Technique = "Aglio su pasta",
-            ImageUrl = "https://m.media-amazon.com/images/M/MV5BMzgzMzY2MmMtMWNkNy00ZjVkLWIxOWUtZDJjODNmY2IyOWFiXkEyXkFqcGc@._V1_QL75_UX190_CR0,28,190,281_.jpg"
-        }
-    ];
+    private readonly HttpClient _httpClient = new();
 
     // GET: api/artworks
-    public Task<IEnumerable<Artwork>> GetAllAsync()
+    public async Task<IEnumerable<Artwork>> GetAllAsync()
     {
-        return Task.FromResult<IEnumerable<Artwork>>(list);
+        return await _httpClient.GetFromJsonAsync<IEnumerable<Artwork>>("artworks") ?? list;
     }
 
     // GET: api/artworks/{id}
-    public Task<Artwork?> GetItemByIdAsync(Guid id)
+    public async Task<Artwork?> GetItemByIdAsync(Guid id)
     {
-        Artwork? artwork = list.FirstOrDefault(e => e.Id == id);
-
-        return Task.FromResult(artwork);
+        return await _httpClient.GetFromJsonAsync<Artwork>($"artworks/{id}");
     }
 
     // POST: api/artworks
@@ -64,7 +23,7 @@ public class ArtworksService : IArtworksService
     {
         try
         {
-            list.Add(artwork);
+            _httpClient.PostAsJsonAsync("artworks", artwork);
             return Task.CompletedTask;
         }
         catch (Exception ex)
@@ -79,16 +38,7 @@ public class ArtworksService : IArtworksService
     {
         try
         {
-            Artwork? existingArtwork = list.FirstOrDefault(e => e.Id == artwork.Id);
-            if (existingArtwork != null)
-            {
-                existingArtwork.Title = artwork.Title;
-                existingArtwork.Author = artwork.Author;
-                existingArtwork.CreatedYear = artwork.CreatedYear;
-                existingArtwork.Description = artwork.Description;
-                existingArtwork.Technique = artwork.Technique;
-                existingArtwork.ImageUrl = artwork.ImageUrl;
-            }
+            _httpClient.PutAsJsonAsync($"artworks/{artwork.Id}", artwork);
             return Task.CompletedTask;
         }
         catch (Exception ex)
@@ -103,7 +53,7 @@ public class ArtworksService : IArtworksService
     {
         try
         {
-            list.RemoveAll(e => e.Id == id);
+            await _httpClient.DeleteAsync($"artworks/{id}");
             return;
         }
         catch (Exception ex)
